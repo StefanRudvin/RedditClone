@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Home</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    Welcome to reddit!
                 </div>
 
             </div>
@@ -16,10 +16,24 @@
             @foreach ($posts as $post)
 
                 <div class="panel panel-default">
+                    
+                    <a href="{{ $post->path() }}">
+                    <div class="panel-heading">
+                    {{ str_limit($post->title, $limit = 150, $end = '...') }}
+                    </a>
+                    <div class="text-right">
+                    
+                    <a href=" {{ $post->user->path }}">{{
+                    $post->user->name
+                    
+                    }}</a>
+                    </div>
+                    </div>
+                    
 
-                    <div class="panel-heading"> {{ $post->title }}</div>
-
-                    <div class="panel-body"> {{ $post->content }} </div>
+                    <div class="panel-body">
+                    {{ str_limit($post->content, $limit = 150, $end = '...') }}
+                    </div>
 
                 </div>
 

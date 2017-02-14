@@ -15,4 +15,9 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function path()
+    {
+        return '/posts/' . $this->id;
+    }
+
 }

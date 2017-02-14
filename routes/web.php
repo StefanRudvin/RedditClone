@@ -15,11 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', 'PostsController@index');
+Route::get('/home', 'HomeController@index');
 
+
+Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show');
 
-Route::get('/home', 'HomeController@index');
+Route::post('/posts/{post}', 'PostsController@store');
+Route::get('/posts/{post}/edit', 'PostsController@edit');
+Route::patch('/posts/{post}', 'PostsController@update');
+Route::get('/posts/{post}/destroy', 'PostsController@destroy');
+
 
 Auth::routes();
 

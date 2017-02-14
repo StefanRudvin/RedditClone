@@ -16,8 +16,8 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'content' => $faker->realText($maxNbChars = 200, $indexSize = 2),
-        'title' => $faker->unique()->realText($maxNbChars = 15, $indexSize = 2),
+        'content' => $faker->realText($maxNbChars = 1000, $indexSize = 2),
+        'title' => $faker->unique()->realText($maxNbChars = 40, $indexSize = 2),
         'user_id' => App\User::all()->random()->id,
     ];
 });
