@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/user/{user}', 'UsersController@show');
+Route::get('/admin', 'UsersController@admin');
 
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show');

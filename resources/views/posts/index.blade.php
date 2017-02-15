@@ -23,7 +23,9 @@
                     </a>
                     <div class="text-right">
                     
-                    <a href=" {{ $post->user->path }}">{{
+                    <a href="/user/{{ $post->user->id }}">
+
+                    {{
                     $post->user->name
                     
                     }}</a>

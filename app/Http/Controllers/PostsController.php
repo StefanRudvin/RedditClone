@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Post;
 
+use App\User;
+
 class PostsController extends Controller
 {
     //
@@ -63,6 +65,5 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         echo "This deletes current post. Not yet implemented";
-        #$post->
     }
 }

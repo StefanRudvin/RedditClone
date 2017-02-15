@@ -7,14 +7,13 @@
         <div class="col-md-8 col-md-offset-2">
             
             <div class="panel panel-default">
-                
-                <a href="##">
+                <a href="{{ $post->path() }}">
                 <div class="panel-heading">
                 {{ $post->title }}
                 </a>
                 <div class="text-right">
                 {{ $post->User->username }}
-                <a href="#">{{ $post->user->name }}</a>
+                <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
                 </div>
                 </div>
                 
