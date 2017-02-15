@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PostsTableSeeder extends Seeder
+class CommentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,10 +11,9 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-            'title' => str_random(10),
+        DB::table('comments')->insert([
             'content' => str_random(100),
-            'user_id' => str_random(2),
+            'user_id' => str_random(10),
             'score' => str_random(100),
             ]);
     }

@@ -8,6 +8,8 @@ use App\Post;
 
 use App\User;
 
+use App\Comment;
+
 class PostsController extends Controller
 {
     //
@@ -47,7 +49,9 @@ class PostsController extends Controller
     {
         #$post->load('post');
 
-        return view('posts.show', compact('post'));
+        $comments = $post->comments()->get();
+
+        return view('posts.show', compact('post', 'comments'));
     }
 
     public function edit(Post $post)

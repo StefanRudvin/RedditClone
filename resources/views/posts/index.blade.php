@@ -17,24 +17,21 @@
 
                 <div class="panel panel-default">
                     
-                    <a href="{{ $post->path() }}">
-                    <div class="panel-heading">
-                    {{ str_limit($post->title, $limit = 150, $end = '...') }}
-                    </a>
-                    <div class="text-right">
-                    
-                    <a href="/user/{{ $post->user->id }}">
 
-                    {{
-                    $post->user->name
                     
-                    }}</a>
-                    </div>
+                    <div class="panel-heading">
+                        <a href="{{ $post->path() }}">
+                        <h3>{{ str_limit($post->title, $limit = 150, $end = '...') }}</h3>
+                        </a>
                     </div>
                     
 
                     <div class="panel-body">
                     {{ str_limit($post->content, $limit = 150, $end = '...') }}
+                    </div>
+
+                    <div class="text-right">
+                        <a href="/user/{{ $post->user->id }}"> {{$post->user->name}}</a>
                     </div>
 
                 </div>
