@@ -10,6 +10,10 @@ use App\User;
 
 use App\Comment;
 
+use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Auth;
+
 class PostsController extends Controller
 {
     //
@@ -31,23 +35,26 @@ class PostsController extends Controller
         return view('posts.index', compact('posts'));
     }
 
+    public function create()
+    {
+        return view('posts.new');
+    }
+
     public function store(Request $request)
     {
-
         $this->validate($request, [
-            'name' => 'required|min:3', 'unique',
-            'email' => 'required|min:10', 'unique',
-            'password' => 'required|min:10',
+            'content' => 'required|min:1',
+            'title' => 'required|min:1'
             ]);
 
-        $post = new Post($request->all());
-
-        return back();
+        $comment = new Post($request->all());
+        $comment->user_id = Auth::user()->id;
+        $comment->save();
+        return redirect('/posts');
     }
 
     public function show(Post $post)
     {
-        #$post->load('post');
 
         $comments = $post->comments()->get();
 
@@ -63,11 +70,13 @@ class PostsController extends Controller
     {
         $post->update($request->all());
 
-        return view('posts.show', compact('post'));
+        $comments = $post->comments()->get();
+
+        return view('posts.show', compact('post', 'comments'));
     }
 
     public function destroy(Post $post)
     {
-        echo "This deletes current post. Not yet implemented";
+        return "This deletes current post. Not yet implemented";
     }
 }

@@ -22,7 +22,9 @@ class UsersController extends Controller
     {
         $posts = $user->posts()->get();
 
-        return view('posts.index', compact('posts'));
+        $comments = $user->posts()->get();
+
+        return view('user.index', compact('posts','comments', 'user'));
     }
 
     public function admin()

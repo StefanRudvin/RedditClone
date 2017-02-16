@@ -45,6 +45,22 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             </form>
+
+            <form method="DELETE" action="/posts/{{ $post->id }}">
+
+                {{ method_field('DELETE') }}
+
+                <div class="form-group">
+
+                    <button type="submit" class="btn btn-primary">
+                    Delete Post
+                    </button>
+
+                </div>
+
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+            </form>
       
         </div>
     </div>
